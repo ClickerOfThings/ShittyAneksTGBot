@@ -22,17 +22,17 @@ namespace shiddyAnecss
         public static void Main()
         {
             baneksBot =
-            new TelegramBotClient("БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯ");
+            new TelegramBotClient("ЖОПА");
             ReceiverOptions opt = new ReceiverOptions()
             {
                 AllowedUpdates = new UpdateType[] { UpdateType.Message }
             };
             baneksBot.StartReceiving(NewUpdateFunc, ErrorFunc, receiverOptions: opt);
-            /*while (true) // Я кодер на monodevelop, иди нахуй
+            while (true) // Я кодер на monodevelop, иди нахуй
             {
                 Thread.Sleep(1000);
                 Console.ReadLine();
-            }*/
+            }
             Console.WriteLine("Нажми энтер, чтобы убить и распотрошить нахуй этого бота.");
             Console.ReadLine();
         }
@@ -44,6 +44,8 @@ namespace shiddyAnecss
 
         static void NewUpdateFunc(ITelegramBotClient client, Telegram.Bot.Types.Update update, System.Threading.CancellationToken cancellationToken)
         {
+            if (update.Message.Text is null)
+                return;
             User user = update.Message.From;
             Chat chat = update.Message.Chat;
             User botUser = client.GetMeAsync().Result;
