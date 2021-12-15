@@ -22,7 +22,7 @@ namespace shiddyAnecss
         public static void Main()
         {
             baneksBot =
-            new TelegramBotClient("БЛЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯ");
+            new TelegramBotClient("ЖОПА");
             ReceiverOptions opt = new ReceiverOptions()
             {
                 AllowedUpdates = new UpdateType[] { UpdateType.Message }
@@ -44,6 +44,8 @@ namespace shiddyAnecss
 
         static void NewUpdateFunc(ITelegramBotClient client, Telegram.Bot.Types.Update update, System.Threading.CancellationToken cancellationToken)
         {
+            if (update.Message.Text is null)
+                return;
             User user = update.Message.From;
             Chat chat = update.Message.Chat;
             User botUser = client.GetMeAsync().Result;
