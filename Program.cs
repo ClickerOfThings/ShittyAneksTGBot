@@ -28,11 +28,11 @@ namespace shiddyAnecss
                 AllowedUpdates = new UpdateType[] { UpdateType.Message }
             };
             baneksBot.StartReceiving(NewUpdateFunc, ErrorFunc, receiverOptions: opt);
-            /*while (true) // Я кодер на monodevelop, иди нахуй
+            while (true) // Я кодер на monodevelop, иди нахуй
             {
                 Thread.Sleep(1000);
                 Console.ReadLine();
-            }*/
+            }
             Console.WriteLine("Нажми энтер, чтобы убить и распотрошить нахуй этого бота.");
             Console.ReadLine();
         }
